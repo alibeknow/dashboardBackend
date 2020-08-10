@@ -23,9 +23,11 @@ export class Providers extends BaseEntity {
   @Column({ type: "numeric", nullable: false })
   @ApiModelPropertyOptional()
   readonly status: number;
+
   @OneToMany((type) => Channels, (channel) => channel.provider)
   @ApiModelProperty()
   channels: Channels[];
+
   @ManyToOne((type) => Routes, (routes) => routes.provider)
   @ApiModelProperty()
   @JoinColumn({ name: "tchannelid" })

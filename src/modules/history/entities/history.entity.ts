@@ -26,7 +26,7 @@ export class History extends BaseEntity {
 
   @Column({ length: 30 })
   @ApiModelPropertyOptional()
-  readonly channel: number;
+  readonly channel: string;
   @Column("timestamp with time zone", {
     nullable: false,
     default: () => "CURRENT_TIMESTAMP",
