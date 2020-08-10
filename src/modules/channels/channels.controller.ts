@@ -8,14 +8,14 @@ import {
   Param,
 } from "@nestjs/common";
 import { ApiUseTags, ApiResponse } from "@nestjs/swagger";
-import { User } from "./entities/channels.entity";
+import { Channels } from "./entities/channels.entity";
 import { BaseController } from "../base/base.controller";
-import { UsersService } from "./channels.service.orm";
+import { ChannelsService } from "./channels.service.orm";
 
-@ApiUseTags("users")
-@Controller("users")
-export class UsersController extends BaseController<User> {
-  constructor(private readonly usersService: UsersService) {
-    super(usersService);
+@ApiUseTags("channels")
+@Controller("channels")
+export class ChannelsController extends BaseController<Channels> {
+  constructor(private readonly channelsService: ChannelsService) {
+    super(channelsService);
   }
 }
