@@ -9,4 +9,4 @@ import { Protocol } from "./entities/protocols.entity";
   controllers: [ProtocolsController],
   components: [ProtocolsService],
 })
-export class UsersModule {}
+export class ProtocolsModule {}

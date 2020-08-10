@@ -9,4 +9,4 @@ import { Routes } from "./entities/routes.entity";
   controllers: [RoutesController],
   components: [RoutesService],
 })
-export class UsersModule {}
+export class RoutesModule {}

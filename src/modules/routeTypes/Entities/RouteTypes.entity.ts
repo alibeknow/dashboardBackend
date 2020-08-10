@@ -4,20 +4,22 @@ import {
   PrimaryGeneratedColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from "typeorm";
 import { BaseEntity } from "../../base/base.entity";
 import { ApiModelProperty, ApiModelPropertyOptional } from "@nestjs/swagger";
 import { Routes } from "../../routes/entities/routes.entity";
+
 @Entity({ name: "troutetypes", schema: "config" })
 export class RouteTypes extends BaseEntity {
   @Column({ length: 2 })
   @ApiModelProperty()
   readonly code: string;
 
-  @ManyToOne((type) => Routes, (route) => route.routeType)
-  @JoinColumn({ name: "troutetypeid" })
+  @OneToMany((type) => Routes, (route) => route.routeType)
   @ApiModelProperty()
-  route: Routes;
+  routes: Routes[];
+
   constructor(o: Object) {
     super();
     Object.assign(this, o);

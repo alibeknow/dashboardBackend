@@ -9,4 +9,4 @@ import { Channels } from "./entities/channels.entity";
   controllers: [ChannelsController],
   components: [ChannelsService],
 })
-export class UsersModule {}
+export class ChannelsModule {}

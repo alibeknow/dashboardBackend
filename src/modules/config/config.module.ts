@@ -5,8 +5,8 @@ import { ConfigService } from "./config.service.orm";
 import { Config } from "./entities/config.entity";
 
 @Module({
-  imports: [TypeOrmModule.forFeature([History])],
+  imports: [TypeOrmModule.forFeature([Config])],
   controllers: [ConfigController],
   components: [ConfigService],
 })
-export class UsersModule {}
+export class ConfigModule {}

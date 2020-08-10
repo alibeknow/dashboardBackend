@@ -2,7 +2,7 @@ import { Entity, Column, ManyToOne, JoinColumn, OneToMany } from "typeorm";
 import { BaseEntity } from "../../base/base.entity";
 import { ApiModelProperty, ApiModelPropertyOptional } from "@nestjs/swagger";
 import { Providers } from "../../providers/entities/providers.entity";
-import { RouteTypes } from "../../routeTypes/Entities/RouteTypes.entity";
+import { RouteTypes } from "../../routeTypes/entities/routeTypes.entity";
 @Entity({ name: "troutes", schema: "config" })
 export class Routes extends BaseEntity {
   @Column("numeric")
@@ -14,9 +14,10 @@ export class Routes extends BaseEntity {
   @ApiModelProperty()
   provider: Providers;
 
-  @OneToMany((type) => RouteTypes, (routeType) => routeType.route)
+  @ManyToOne((type) => RouteTypes, (routeType) => routeType.routes)
+  @JoinColumn({ name: "troutetypeid" })
   @ApiModelProperty()
-  routeType: Providers;
+  routeType: RouteTypes;
 
   constructor(o: Object) {
     super();

@@ -10,6 +10,7 @@ import { BaseEntity } from "../../base/base.entity";
 import { ApiModelProperty, ApiModelPropertyOptional } from "@nestjs/swagger";
 import { Channels } from "../../channels/entities/channels.entity";
 import { Routes } from "../../routes/entities/routes.entity";
+
 @Entity({ name: "tproviders", schema: "config" })
 export class Providers extends BaseEntity {
   @Column({ length: 30 })
@@ -24,14 +25,14 @@ export class Providers extends BaseEntity {
   @ApiModelPropertyOptional()
   readonly status: number;
 
+  @ManyToOne((type) => Channels, (channel) => channel.provider)
+  @JoinColumn({ name: "tchannelid" })
+  @ApiModelProperty()
+  readonly channels: Channels[];
+
   @OneToMany((type) => Channels, (channel) => channel.provider)
   @ApiModelProperty()
-  channels: Channels[];
-
-  @ManyToOne((type) => Routes, (routes) => routes.provider)
-  @ApiModelProperty()
-  @JoinColumn({ name: "tchannelid" })
-  routes: Routes;
+  readonly routes: Routes;
 
   constructor(o: Object) {
     super();

@@ -8,7 +8,7 @@ import {
   Param,
 } from "@nestjs/common";
 import { ApiUseTags, ApiResponse } from "@nestjs/swagger";
-import { RouteTypes } from "./entities/RouteTypes.entity";
+import { RouteTypes } from "./entities/routeTypes.entity";
 import { BaseController } from "../base/base.controller";
 import { RouteTypesService } from "./routeTypes.service.orm";
 

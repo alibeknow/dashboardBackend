@@ -2,7 +2,7 @@ import { Component, Inject } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { STATUS_CODES } from "http";
-import { RouteTypes } from "./entities/RouteTypes.entity";
+import { RouteTypes } from "./entities/routeTypes.entity";
 import { BaseService } from "../base/base.service";
 
 @Component()

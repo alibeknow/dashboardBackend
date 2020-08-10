@@ -18,8 +18,10 @@ export class Channels extends BaseEntity {
   @ApiModelPropertyOptional()
   readonly description: string;
 
-  @ManyToOne((type) => Providers, (provider) => provider.channels)
+  @OneToMany((type) => Providers, (provider) => provider.channels)
+  @ApiModelProperty()
   provider: Providers;
+
   constructor(o: Object) {
     super();
     Object.assign(this, o);
