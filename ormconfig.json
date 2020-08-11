@@ -1,0 +1,11 @@
+{
+  "type": "postgres",
+  "host": "10.15.123.177",
+  "port": 5432,
+  "username": "in_user",
+  "password": "owndev$pass",
+  "database": "inpdb",
+  "entities": ["src/**/**.entity{.ts,.js}"],
+  "synchronize": false,
+  "logging": true
+}
