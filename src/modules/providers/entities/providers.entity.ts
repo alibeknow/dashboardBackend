@@ -7,31 +7,31 @@ import {
   JoinColumn,
 } from "typeorm";
 import { BaseEntity } from "../../base/base.entity";
-import { ApiModelProperty, ApiModelPropertyOptional } from "@nestjs/swagger";
+import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 import { Channels } from "../../channels/entities/channels.entity";
 import { Routes } from "../../routes/entities/routes.entity";
 
 @Entity({ name: "tproviders", schema: "config" })
 export class Providers extends BaseEntity {
   @Column({ length: 30 })
-  @ApiModelProperty()
+  @ApiProperty()
   readonly code: string;
 
   @Column("text", { nullable: true })
-  @ApiModelPropertyOptional()
+  @ApiPropertyOptional()
   readonly name: string;
 
   @Column({ type: "numeric", nullable: false })
-  @ApiModelPropertyOptional()
+  @ApiPropertyOptional()
   readonly status: number;
 
   @ManyToOne((type) => Channels, (channel) => channel.provider)
   @JoinColumn({ name: "tchannelid" })
-  @ApiModelProperty()
+  @ApiProperty()
   readonly channels: Channels[];
 
   @OneToMany((type) => Channels, (channel) => channel.provider)
-  @ApiModelProperty()
+  @ApiProperty()
   readonly routes: Routes;
 
   constructor(o: Object) {

@@ -6,20 +6,20 @@ import {
   ManyToOne,
 } from "typeorm";
 import { BaseEntity } from "../../base/base.entity";
-import { ApiModelProperty, ApiModelPropertyOptional } from "@nestjs/swagger";
+import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 import { Providers } from "../../providers/entities/providers.entity";
 @Entity({ name: "tchannels", schema: "config" })
 export class Channels extends BaseEntity {
   @Column({ length: 50 })
-  @ApiModelProperty()
+  @ApiProperty()
   readonly code: string;
 
   @Column("text")
-  @ApiModelPropertyOptional()
+  @ApiPropertyOptional()
   readonly description: string;
 
   @OneToMany((type) => Providers, (provider) => provider.channels)
-  @ApiModelProperty()
+  @ApiProperty()
   provider: Providers;
 
   constructor(o: Object) {

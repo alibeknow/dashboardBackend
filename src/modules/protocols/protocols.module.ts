@@ -7,6 +7,6 @@ import { Protocol } from "./entities/protocols.entity";
 @Module({
   imports: [TypeOrmModule.forFeature([Protocol])],
   controllers: [ProtocolsController],
-  components: [ProtocolsService],
+  providers: [ProtocolsService],
 })
 export class ProtocolsModule {}

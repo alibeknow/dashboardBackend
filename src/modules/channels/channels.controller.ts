@@ -7,12 +7,12 @@ import {
   Body,
   Param,
 } from "@nestjs/common";
-import { ApiUseTags, ApiResponse } from "@nestjs/swagger";
+import { ApiTags, ApiResponse } from "@nestjs/swagger";
 import { Channels } from "./entities/channels.entity";
 import { BaseController } from "../base/base.controller";
 import { ChannelsService } from "./channels.service.orm";
 
-@ApiUseTags("channels")
+@ApiTags("channels")
 @Controller("channels")
 export class ChannelsController extends BaseController<Channels> {
   constructor(private readonly channelsService: ChannelsService) {

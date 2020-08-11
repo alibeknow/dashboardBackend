@@ -1,49 +1,49 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 import { BaseEntity } from "../../base/base.entity";
-import { ApiModelProperty, ApiModelPropertyOptional } from "@nestjs/swagger";
+import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 
 @Entity({ name: "thistory", schema: "history" })
 export class History extends BaseEntity {
   @Column({ length: 255 })
-  @ApiModelProperty()
+  @ApiProperty()
   readonly address: string;
 
   @Column({ length: 255 })
-  @ApiModelProperty()
+  @ApiProperty()
   readonly provider: string;
 
   @Column({ length: 2 })
-  @ApiModelProperty()
+  @ApiProperty()
   readonly routeType: string;
 
   @Column("text")
-  @ApiModelProperty()
+  @ApiProperty()
   readonly message: string;
 
   @Column({ type: "numeric" })
-  @ApiModelPropertyOptional()
+  @ApiPropertyOptional()
   readonly status: number;
 
   @Column({ length: 30 })
-  @ApiModelPropertyOptional()
+  @ApiPropertyOptional()
   readonly channel: string;
   @Column("timestamp with time zone", {
     nullable: false,
     default: () => "CURRENT_TIMESTAMP",
   })
-  @ApiModelProperty()
+  @ApiProperty()
   readonly created: Date;
 
   @Column("timestamp with time zone", {
     nullable: false,
   })
-  @ApiModelProperty()
+  @ApiProperty()
   readonly sended: Date;
 
   @Column("timestamp with time zone", {
     nullable: false,
   })
-  @ApiModelProperty()
+  @ApiProperty()
   readonly delivered: Date;
 
   constructor(o: Object) {

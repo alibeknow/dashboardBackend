@@ -7,6 +7,6 @@ import { RouteTypes } from "./entities/routeTypes.entity";
 @Module({
   imports: [TypeOrmModule.forFeature([RouteTypes])],
   controllers: [RouteTypesController],
-  components: [RouteTypesService],
+  providers: [RouteTypesService],
 })
 export class RouteTypesModule {}

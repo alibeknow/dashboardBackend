@@ -6,7 +6,7 @@ import {
   JoinColumn,
 } from "typeorm";
 import { BaseEntity } from "../../base/base.entity";
-import { ApiModelProperty, ApiModelPropertyOptional } from "@nestjs/swagger";
+import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 import { Providers } from "../../providers/entities/providers.entity";
 import { Protocol } from "../../protocols/entities/protocols.entity";
 import { Parameters } from "../../parameters/entities/parameters.entity";
@@ -14,25 +14,25 @@ import { Parameters } from "../../parameters/entities/parameters.entity";
 @Entity({ name: "tconfig", schema: "config" })
 export class Config extends BaseEntity {
   @Column({ length: 30 })
-  @ApiModelProperty()
+  @ApiProperty()
   readonly code: string;
 
   @Column("text")
-  @ApiModelPropertyOptional()
+  @ApiPropertyOptional()
   readonly description: string;
 
   @ManyToOne((type) => Providers, (routes) => routes)
-  @ApiModelProperty()
+  @ApiProperty()
   @JoinColumn({ name: "tproviderid" })
   routes: Providers;
 
   @ManyToOne((type) => Protocol, (protocol) => protocol)
-  @ApiModelProperty()
+  @ApiProperty()
   @JoinColumn({ name: "tprotocolid" })
   protocol: Protocol;
 
   @ManyToOne((type) => Parameters, (parameters) => parameters)
-  @ApiModelProperty()
+  @ApiProperty()
   @JoinColumn({ name: "tparameterid" })
   parameters: Parameters;
 

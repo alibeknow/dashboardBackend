@@ -12,7 +12,7 @@ import { RouteTypesModule } from "./routeTypes/routeTypes.module";
 import { RoutesModule } from "./routes/routes.module";
 
 @Module({
-  modules: [
+  imports: [
     UsersModule,
     ChannelsModule,
     ConfigModule,

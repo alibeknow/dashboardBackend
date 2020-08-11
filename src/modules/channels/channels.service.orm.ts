@@ -1,11 +1,11 @@
-import { Component, Inject } from "@nestjs/common";
+import { Injectable, Inject } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { STATUS_CODES } from "http";
 import { Channels } from "./entities/channels.entity";
 import { BaseService } from "../base/base.service";
 
-@Component()
+@Injectable()
 export class ChannelsService extends BaseService<Channels> {
   constructor(
     @InjectRepository(Channels)

@@ -7,6 +7,6 @@ import { Parameters } from "./entities/parameters.entity";
 @Module({
   imports: [TypeOrmModule.forFeature([Parameters])],
   controllers: [ProviderController],
-  components: [ProvidersService],
+  providers: [ProvidersService],
 })
 export class ParamtersModule {}

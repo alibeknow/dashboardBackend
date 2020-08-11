@@ -7,12 +7,12 @@ import {
   Body,
   Param,
 } from "@nestjs/common";
-import { ApiUseTags, ApiResponse } from "@nestjs/swagger";
+import { ApiTags, ApiResponse } from "@nestjs/swagger";
 import { Parameters } from "./entities/parameters.entity";
 import { BaseController } from "../base/base.controller";
 import { ProvidersService } from "./parameters.service.orm";
 
-@ApiUseTags("parameters")
+@ApiTags("parameters")
 @Controller("parameters")
 export class ProviderController extends BaseController<Parameters> {
   constructor(private readonly providersService: ProvidersService) {

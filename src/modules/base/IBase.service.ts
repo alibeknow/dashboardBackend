@@ -1,8 +1,7 @@
 export interface IBaseService<T> {
-    
-    getAll(): Promise<T[]>;
-    get(id: number): Promise<T>;
-    update(entity: T): Promise<T>;
-    create(entity: T): Promise<number>;
-    delete(id: number);
+  getAll(skip: number, limit: number): Promise<T[]>;
+  get(uid: string): Promise<T>;
+  update(entity: T): Promise<T>;
+  create(entity: T): Promise<string>;
+  delete(uid: string);
 }
