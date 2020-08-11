@@ -1,14 +1,14 @@
+import { Routes } from "./../../routes/entities/routes.entity";
 import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
   ManyToOne,
   JoinColumn,
-  OneToMany,
+  OneToMany
 } from "typeorm";
 import { BaseEntity } from "../../base/base.entity";
 import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
-import { Routes } from "../../routes/entities/routes.entity";
 
 @Entity({ name: "troutetypes", schema: "config" })
 export class RouteTypes extends BaseEntity {
@@ -16,7 +16,10 @@ export class RouteTypes extends BaseEntity {
   @ApiProperty()
   readonly code: string;
 
-  @OneToMany((type) => Routes, (route) => route.routeType)
+  @OneToMany(
+    type => Routes,
+    route => route.routeType
+  )
   @ApiProperty()
   routes: Routes[];
 

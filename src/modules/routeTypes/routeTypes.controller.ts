@@ -5,10 +5,10 @@ import {
   Delete,
   Put,
   Body,
-  Param,
+  Param
 } from "@nestjs/common";
 import { ApiTags, ApiResponse } from "@nestjs/swagger";
-import { RouteTypes } from "./entities/routeTypes.entity";
+import { RouteTypes } from "./entities/RouteTypes.entity";
 import { BaseController } from "../base/base.controller";
 import { RouteTypesService } from "./routeTypes.service.orm";
 
