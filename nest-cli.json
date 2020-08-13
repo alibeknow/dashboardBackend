@@ -1,0 +1,30 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/dashboardBackend/src",
+  "monorepo": true,
+  "root": "apps/dashboardBackend",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/dashboardBackend/tsconfig.app.json"
+  },
+  "projects": {
+    "dashboardBackend": {
+      "type": "application",
+      "root": "apps/dashboardBackend",
+      "entryFile": "main",
+      "sourceRoot": "apps/dashboardBackend/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/dashboardBackend/tsconfig.app.json"
+      }
+    },
+    "auth": {
+      "type": "library",
+      "root": "libs/auth",
+      "entryFile": "index",
+      "sourceRoot": "libs/auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/auth/tsconfig.lib.json"
+      }
+    }
+  }
+}
