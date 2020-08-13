@@ -3,7 +3,7 @@ import axios from 'axios'
 import * as cookieParser from 'cookie-parser'
 import * as cookieSession from 'cookie-session'
 import * as passport from 'passport'
-import { AppModule } from './app.module'
+import { AppAuthModule } from './app.module'
 
 jest.setTimeout(20000)
 
@@ -12,7 +12,7 @@ const password = 'some-password'
 const secret = 'some-cookie-secret'
 
 const bootstrap = async () => {
-  const app = await NestFactory.create(AppModule, { logger: console })
+  const app = await NestFactory.create(AppAuthModule, { logger: console })
   app.use(cookieParser())
   app.use(cookieSession({ secret }))
   app.use(passport.initialize())
@@ -21,7 +21,7 @@ const bootstrap = async () => {
   return app
 }
 
-const teardown = async app => {
+const teardown = async (app) => {
   await app.close()
   app = undefined
 }
@@ -41,10 +41,10 @@ describe('AuthModule', () => {
         const { data, headers, status } = await axios.post(
           `http://localhost:3000/login`,
           { username, password },
-          { maxRedirects: 0, validateStatus: status => status === 302 },
+          { maxRedirects: 0, validateStatus: (status) => status === 302 },
         )
         cookie = headers['set-cookie']
-          .map(cookie => cookie.split(';')[0])
+          .map((cookie) => cookie.split(';')[0])
           .reduce((acc, cookie) => acc + cookie + ';', '')
         expect(data).toBe('Found. Redirecting to /secured-page')
         expect(status).toBe(302)

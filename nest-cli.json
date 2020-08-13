@@ -2,15 +2,15 @@
   "collection": "@nestjs/schematics",
   "sourceRoot": "src/",
   "monorepo": true,
-  "root": "src/",
+  "root": "/",
   "compilerOptions": {
     "webpack": true,
     "tsConfigPath": "src/tsconfig.app.json"
   },
   "projects": {
-    "nest-auth": {
+    "dashboardBackend": {
       "type": "application",
-      "root": "src/",
+      "root": "/",
       "entryFile": "main",
       "sourceRoot": "src",
       "compilerOptions": {

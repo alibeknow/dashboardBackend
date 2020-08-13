@@ -7,12 +7,12 @@ import {
   UseGuards,
 } from '@nestjs/common'
 import { Unauthorized } from './auth.filter'
-import { LocalStrategy } from './local.strategy'
+import { LdapStrategy } from './ldap-strategy'
 import { LoginGuard } from './login.guard'
 
 @Controller()
 export class AuthController {
-  constructor(private readonly strategy: LocalStrategy) {}
+  constructor(private readonly strategy: LdapStrategy) {}
   @Post('login')
   @UseGuards(LoginGuard)
   @UseFilters(Unauthorized)

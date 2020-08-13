@@ -7,4 +7,4 @@ import { AuthModule } from "@bcc/auth";
   imports: [AuthModule],
   controllers: [AppController],
 })
-export class AppModule {}
+export class AppAuthModule {}

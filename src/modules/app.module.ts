@@ -10,6 +10,7 @@ import { ProtocolsModule } from "./protocols/protocols.module";
 import { ProvidersModule } from "./providers/providers.module";
 import { RouteTypesModule } from "./routeTypes/routeTypes.module";
 import { RoutesModule } from "./routes/routes.module";
+import { AppAuthModule } from "./auth/app.module";
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { RoutesModule } from "./routes/routes.module";
     ProvidersModule,
     RouteTypesModule,
     RoutesModule,
+    AppAuthModule,
     TypeOrmModule.forRoot(),
   ],
 })

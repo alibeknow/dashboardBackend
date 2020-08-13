@@ -6,11 +6,11 @@ import {
   UnauthorizedException,
 } from '@nestjs/common'
 import { Response } from 'express'
-import { LocalStrategy } from './local.strategy'
+import { LdapStrategy } from './ldap-strategy'
 
 @Catch(UnauthorizedException, ForbiddenException)
 export class Unauthorized implements ExceptionFilter {
-  constructor(private readonly strategy: LocalStrategy) {}
+  constructor(private readonly strategy: LdapStrategy) {}
   catch(
     _exception: ForbiddenException | UnauthorizedException,
     host: ArgumentsHost,
