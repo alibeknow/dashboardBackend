@@ -12,7 +12,7 @@
       "type": "application",
       "root": "/",
       "entryFile": "main",
-      "sourceRoot": "src",
+      "sourceRoot": "/src",
       "compilerOptions": {
         "tsConfigPath": "src/tsconfig.app.json"
       }
