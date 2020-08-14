@@ -1,16 +1,16 @@
-import { Module } from "@nestjs/common";
-import { UsersModule } from "./users/users.module";
-import { TypeOrmModule } from "@nestjs/typeorm";
-import { Connection } from "typeorm";
-import { ChannelsModule } from "./channels/channels.module";
-import { ConfigModule } from "./config/config.module";
-import { HistoryModule } from "./history/history.module";
-import { ParamtersModule } from "./parameters/parameters.module";
-import { ProtocolsModule } from "./protocols/protocols.module";
-import { ProvidersModule } from "./providers/providers.module";
-import { RouteTypesModule } from "./routeTypes/routeTypes.module";
-import { RoutesModule } from "./routes/routes.module";
-import { AppAuthModule } from "./auth/app.module";
+import { Module } from '@nestjs/common'
+import { UsersModule } from './users/users.module'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { Connection } from 'typeorm'
+import { ChannelsModule } from './channels/channels.module'
+import { ConfigModule } from './config/config.module'
+import { HistoryModule } from './history/history.module'
+import { ParamtersModule } from './parameters/parameters.module'
+import { ProtocolsModule } from './protocols/protocols.module'
+import { ProvidersModule } from './providers/providers.module'
+import { RouteTypesModule } from './routeTypes/routeTypes.module'
+import { RoutesModule } from './routes/routes.module'
+import { AppAuthModule } from './auth/app.module'
 
 @Module({
   imports: [
@@ -24,7 +24,17 @@ import { AppAuthModule } from "./auth/app.module";
     RouteTypesModule,
     RoutesModule,
     AppAuthModule,
-    TypeOrmModule.forRoot(),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5433,
+      username: 'postgres',
+      password: '123321',
+      database: 'airport',
+      autoLoadEntities: true,
+      synchronize: false,
+      logging: true,
+    }),
   ],
 })
 export class ApplicationModule {
